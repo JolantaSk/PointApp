@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Points.Entities
+namespace Points.DataLayer
 {
-    class Manager
+    class ListManager
     {
-        public void AddPoint()
-        {
 
-        }
     }
 }

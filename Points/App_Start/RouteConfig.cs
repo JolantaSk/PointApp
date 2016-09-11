@@ -12,10 +12,11 @@ namespace Points
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("Scripts/app/{*pathInfo}");
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "{*.}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

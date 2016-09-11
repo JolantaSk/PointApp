@@ -10,23 +10,6 @@ namespace Points.Controllers
     {
         public ActionResult Index()
         {
-            using (var ctx = new RectangleContext())
-            {
-                var l = new List()
-                {
-                    Points = new[]
-                    {
-                        new Point
-                        {
-                            CoordinateX = 1,
-                            CoordinateY = 2,
-                        }
-                    }
-                };
-
-                ctx.Lists.Add(l);
-                ctx.SaveChanges();
-            }
             return View();
         }
     }

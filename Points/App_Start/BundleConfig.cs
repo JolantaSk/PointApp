@@ -21,7 +21,7 @@ namespace Points
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/angular.js"            
+                "~/Scripts/lib/angular.js"            
                 ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

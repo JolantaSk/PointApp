@@ -18,12 +18,27 @@ namespace Points
                 "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/app/PointApp.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/lib/angular.js"            
                 ));
 
+            bundles.Add(new ScriptBundle("~/bundles/controllers")
+                .IncludeDirectory("~/Scripts/app/Controllers", "*.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/services")
+                .IncludeDirectory("~/Scripts/app/Services", "*.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/directives")
+                .IncludeDirectory("~/Scripts/app/Directives", "*.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/views")
+                .IncludeDirectory("~/Scripts/app/Views", "*.html"))
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

@@ -2,7 +2,7 @@
 
     var ListService = {};
 
-    ListService.getCurrency = function () {
+    ListService.GetExistingLists = function () {
         return $http({
             url: '/api/List/GetAll',
             method: 'GET'

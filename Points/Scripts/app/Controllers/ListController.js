@@ -2,7 +2,11 @@
 
 PointApp.controller('ListController', ['$scope', 'ListService', function ($scope, ListService) {
 
-    var ExistingLists = ListService.GetExistingLists();
+    //this.ExistingLists = ListService.GetExistingLists();
+    ListService.GetExistingLists()
+    .then(function (response) {
+        $scope.ExistingLists = response.data;
+    });
     //$scope.GetExistingLists = function () {
     //    $scope.error = false;
     //    var requestedDate = $scope.selectedDate;

@@ -22,7 +22,7 @@ namespace Points
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/lib/angular.js"            
+                "~/Scripts/lib/angular.js"     
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/controllers")
@@ -37,8 +37,12 @@ namespace Points
                 .IncludeDirectory("~/Scripts/app/Directives", "*.js"
                 ));
 
-            bundles.Add(new ScriptBundle("~/bundles/views")
-                .IncludeDirectory("~/Scripts/app/Views", "*.html"))
+            bundles.Add(new ScriptBundle("~/bundles/fileUpload")
+                .IncludeDirectory("~/Scripts/lib/ng-upload", "*.js"));
+
+            //bundles.Add(new ScriptBundle("~/bundles/views")
+            //    .IncludeDirectory("~/Scripts/app/Views", "*.html"
+            //    ));
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

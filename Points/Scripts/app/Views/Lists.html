@@ -1,10 +1,9 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<div ng-controller="FileUploadController as fc">
+    <button class="btn btn-default" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+            accept="'.txt'" ngf-max-size="1MB"> + Add new list </button>
 
-</body>
-</html>
+    <div ng-repeat="list in ExistingLists">
+        <button class="btn btn-default" id="{{list.id}}"> {{list.name}} </button>
+    </div>
+</div>
+

@@ -19,13 +19,13 @@ namespace Points.Api
         }
 
         [HttpGet]
-        public ICollection<Point> Get(int listID)
+        public ICollection<Point> GetList(int listID)
         {
             return _manager.GetList(listID);
         }
 
         [HttpGet] 
-        public ICollection<ReducedList> GetAll()
+        public ICollection<ReducedList> Get()
         {
             return _manager.GetAllLists();
         }

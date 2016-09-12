@@ -7,6 +7,15 @@ PointApp.controller('ListController', ['$scope', 'ListService', function ($scope
     .then(function (response) {
         $scope.ExistingLists = response.data;
     });
+
+    $scope.LoadList = function ($event) {
+        var listID = $event.currentTarget.id;
+        return ListService.GetList(listID)
+        .then(function(response) {
+            $scope.SelectedList = response.data;
+            console.log($scope.SelectedList);
+        });
+    }
     //$scope.GetExistingLists = function () {
     //    $scope.error = false;
     //    var requestedDate = $scope.selectedDate;

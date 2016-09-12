@@ -8,6 +8,14 @@
             method: 'GET'
         });
     }
+
+    ListService.GetList = function (listID) {
+        return $http({
+            url: '/api/List',
+            method: 'GET',
+            params: {listId: listID}
+        });
+    }
     return ListService;
 
 }]);

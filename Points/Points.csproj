@@ -196,6 +196,7 @@
     <Content Include="Scripts\app\Controllers\ListController.js" />
     <Content Include="Scripts\app\PointApp.js" />
     <Content Include="Scripts\app\Services\ListService.js" />
+    <Content Include="Scripts\app\Views\List.html" />
     <Content Include="Scripts\app\Views\Lists.html" />
     <Content Include="Scripts\lib\ng-upload\FileAPI.flash.swf" />
     <Content Include="Scripts\lib\ng-upload\FileAPI.js" />

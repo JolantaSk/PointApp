@@ -15,12 +15,12 @@ PointApp.controller('ListController', ['$scope', 'ListService', 'PointService', 
 
     $scope.LoadLists();
 
-    $scope.LoadList = function ($event) {
-        $scope.currentListID = $event.currentTarget.id;
-        return ListService.GetList($scope.currentListID)
-        .then(function(response) {
+    $scope.LoadList = function (listId) {
+        $scope.currentListID = listId;
+        console.log(this.id);
+        return ListService.GetList(listId)
+        .then(function (response) {
             $scope.SelectedList = response.data;
-            console.log($scope.SelectedList);
         });
     }
 
@@ -34,7 +34,7 @@ PointApp.controller('ListController', ['$scope', 'ListService', 'PointService', 
     $scope.RemovePoint = function(pointId) {
         return PointService.RemovePoint(pointId, $scope.currentListID)
         .then(function() {
-            //$scope.SelectedList
+            $scope.LoadList($scope.currentListID);
         });
     }
 

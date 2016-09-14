@@ -3,7 +3,7 @@
             accept="'.txt'" ngf-max-size="1MB"> + Add new list </button>
 
     <div ng-repeat="list in ExistingLists">
-        <button class="btn btn-default list-button" ng-click="LoadList($event)" id="{{list.id}}"> {{list.name}}</button>
+        <button class="btn btn-default list-button" id="{{list.id}}" ng-click="LoadList(list.id)" > {{list.name}}</button>
     </div>
 </div>
 

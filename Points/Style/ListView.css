@@ -1,0 +1,18 @@
+﻿.list-button {
+    width: 45%;
+    margin-bottom: 10px;
+}
+
+.coordinate-list {
+    width: 50%;
+    float: left;
+}
+
+.lists {
+    width: 30%;
+    float: left;
+}
+
+.add-coordinate-button {
+    margin-top: 25px;
+}

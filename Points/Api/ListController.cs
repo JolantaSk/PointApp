@@ -25,9 +25,14 @@ namespace Points.Api
         }
 
         [HttpGet] 
-        public ICollection<ReducedList> Get()
+        public ICollection<ReducedList> GetAllLists()
         {
             return _manager.GetAllLists();
+        }
+
+        public void RemoveList(int listID)
+        {
+            _manager.RemoveList(listID);
         }
 
     }

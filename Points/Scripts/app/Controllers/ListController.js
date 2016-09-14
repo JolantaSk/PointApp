@@ -1,36 +1,47 @@
 ﻿"use strict";
 
-PointApp.controller('ListController', ['$scope', 'ListService', function ($scope, ListService) {
+PointApp.controller('ListController', ['$scope', 'ListService', 'PointService', function ($scope, ListService, PointService) {
 
-    //this.ExistingLists = ListService.GetExistingLists();
-    ListService.GetExistingLists()
-    .then(function (response) {
-        $scope.ExistingLists = response.data;
-    });
+    $scope.IsListSelected = function () {
+        return $scope.SelectedList != null;
+    }
+
+    $scope.LoadLists = function () {
+        ListService.GetExistingLists()
+        .then(function (response) {
+            $scope.ExistingLists = response.data;
+        });
+    }
+
+    $scope.LoadLists();
 
     $scope.LoadList = function ($event) {
-        var listID = $event.currentTarget.id;
-        return ListService.GetList(listID)
+        $scope.currentListID = $event.currentTarget.id;
+        return ListService.GetList($scope.currentListID)
         .then(function(response) {
             $scope.SelectedList = response.data;
             console.log($scope.SelectedList);
         });
     }
-    //$scope.GetExistingLists = function () {
-    //    $scope.error = false;
-    //    var requestedDate = $scope.selectedDate;
 
-    //    if (requestedDate != undefined && requestedDate != '') {
-    //        return CurrencyService.getCurrency(requestedDate)
-    //        .then(function (response) {
-    //            $scope.Currencies = response.data;
-    //        }, function () {
-    //            $scope.error = true;
-    //            $scope.errorMsg = "Error during the operation. Please check the dates and try again.";
-    //        });
-    //    } else {
-    //        $scope.error = true;
-    //        $scope.errorMsg = "Please enter a valid date";
-    //    }
-    //}
+    $scope.AddPoint = function (x, y) {
+        return PointService.AddPoint(x, y, $scope.currentListID)
+        .then(function () {
+            $scope.SelectedList.push({coordinateX: x, coordinateY: y});
+        });
+    }
+
+    $scope.RemovePoint = function(pointId) {
+        return PointService.RemovePoint(pointId, $scope.currentListID)
+        .then(function() {
+            //$scope.SelectedList
+        });
+    }
+
+    $scope.RemoveList = function () {
+        return ListService.RemoveList($scope.currentListID)
+        .then(function () {
+            $scope.LoadLists();
+        });
+    }
 }]);

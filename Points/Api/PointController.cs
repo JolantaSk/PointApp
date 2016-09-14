@@ -13,7 +13,7 @@ namespace Points.Api
         private PointRepository _manager;
         public PointController()
         {
-
+            _manager = new PointRepository();
         }
 
         [HttpGet]
@@ -22,9 +22,20 @@ namespace Points.Api
         }
 
         [HttpPost]
-        public void AddPoint(int coordinateX, int coordinateY)
+        public void AddPoint(int coordinateX, int coordinateY, int listID)
         {
+            _manager.AddPoint(new Point
+            {
+                CoordinateX = coordinateX,
+                CoordinateY = coordinateY,
+                ListId = listID
+            });
+        }
 
+        [HttpPost]
+        public void RemovePoint(int pointID, int listID)
+        {
+            _manager.RemovePoint(pointID, listID);
         }
     }
 }

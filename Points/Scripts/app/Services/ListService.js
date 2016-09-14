@@ -4,16 +4,24 @@
 
     ListService.GetExistingLists = function () {
         return $http({
-            url: '/api/List/GetAll',
+            url: '/api/List/GetAllLists',
             method: 'GET'
         });
     }
 
-    ListService.GetList = function (listID) {
+    ListService.GetList = function (listId) {
         return $http({
-            url: '/api/List',
+            url: '/api/List/GetList',
             method: 'GET',
-            params: {listId: listID}
+            params: {listID: listId}
+        });
+    }
+
+    ListService.RemoveList = function (listId) {
+        return $http({
+            url: '/api/List/RemoveList',
+            method: 'POST',
+            params: { listID: listId }
         });
     }
     return ListService;

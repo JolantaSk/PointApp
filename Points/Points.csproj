@@ -196,6 +196,7 @@
     <Content Include="Scripts\app\Controllers\ListController.js" />
     <Content Include="Scripts\app\PointApp.js" />
     <Content Include="Scripts\app\Services\ListService.js" />
+    <Content Include="Scripts\app\Services\PointService.js" />
     <Content Include="Scripts\app\Views\List.html" />
     <Content Include="Scripts\app\Views\Lists.html" />
     <Content Include="Scripts\lib\ng-upload\FileAPI.flash.swf" />
@@ -1003,6 +1004,7 @@
     <Content Include="Scripts\lib\ng-upload\ng-file-upload.js" />
     <Content Include="Scripts\lib\ng-upload\ng-file-upload.min.js" />
     <Content Include="Scripts\PointApp.js" />
+    <Content Include="Style\ListView.css" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Web.config">

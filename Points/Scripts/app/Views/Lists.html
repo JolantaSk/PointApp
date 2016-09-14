@@ -1,9 +1,9 @@
-﻿<div ng-controller="FileUploadController as fc">
-    <button class="btn btn-default" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+﻿<div class="lists" ng-controller="FileUploadController as fc">
+    <button class="btn btn-default list-button" type="file" ngf-select="uploadFiles($file, $invalidFiles)"
             accept="'.txt'" ngf-max-size="1MB"> + Add new list </button>
 
     <div ng-repeat="list in ExistingLists">
-        <button class="btn btn-default" ng-click="LoadList($event)" id="{{list.id}}"> {{list.name}}</button>
+        <button class="btn btn-default list-button" ng-click="LoadList($event)" id="{{list.id}}"> {{list.name}}</button>
     </div>
 </div>
 

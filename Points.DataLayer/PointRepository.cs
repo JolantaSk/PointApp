@@ -12,15 +12,14 @@ namespace Points.DataLayer
         private const int MaxPointCoordValue = 5000;
         private const int MaxListSize = 10000;
 
-        public void AddPoint(Point point, int listId)
+        public void AddPoint(Point point)
         {
             using (var ctx = new RectangleContext())
             {
-                var list = ctx.Lists.Find(listId);
+                var list = ctx.Lists.Find(point.ListId);
                 if (!DoesPointExist(list.Points, point) & DoesPointFitInRange(point) & IsListSizeNotExceeded(list.Points))
                     list.Points.Add(point);
 
-                ctx.Lists.Add(list);
                 ctx.SaveChanges();
             }
         }
@@ -54,14 +53,14 @@ namespace Points.DataLayer
             }
         }
 
-        public void RemovePoint(Point point, int listId)
+        public void RemovePoint(int pointId, int listId)
         {
             using (var ctx = new RectangleContext())
             {
-                var list = ctx.Lists.Find(listId);
-                if (!DoesPointExist(list.Points, point))
+                var point = ctx.Points.Where(x => x.Id == pointId && x.ListId == listId).SingleOrDefault();
+                if (point != null)
                 {
-                    list.Points.Remove(point);
+                    ctx.Points.Remove(point);
                 }
                 ctx.SaveChanges();
             }

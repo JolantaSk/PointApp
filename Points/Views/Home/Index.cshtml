@@ -6,6 +6,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Style/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/app")
@@ -19,6 +20,7 @@
     <div class="container body-content" ng-controller="ListController as lc" >
         @*<hr />*@  
         <div ng-include="'/scripts/app/views/lists.html'"></div>
+        <div ng-include="'/scripts/app/views/list.html'"></div>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -1,1 +1,34 @@
-﻿
+﻿<div class="coordinate-list" ng-show="IsListSelected()">
+
+    <div class="add-coordinate">
+        <div class="h4"> Add a coordinate to the list: </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <label for="valX">X value:</label>
+                <input type="number" class="form-control" id="valX" ng-model="valueX">
+            </div>
+
+            <div class="col-xs-4">
+                <label for="valY">Y value:</label>
+                <input type="number" class="form-control" id="valY" ng-model="valueY">
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-default add-coordinate-button" ng-click="AddPoint(valueX, valueY)"> Add coordinate</button>
+            </div>
+    </div>
+    </div>
+
+    <table class="table" style="margin-top:50px" >
+        <tr>
+            <th>Point coordinate on axis X</th>
+            <th>Point coordinate on axis Y</th>
+        </tr>
+        <tr ng-repeat="point in SelectedList" id="{{point.id}}">
+            <td>{{point.coordinateX}}</td>
+            <td>{{point.coordinateY}}</td>
+            <td><a role="button" href="javascript:void(0);" ng-click="RemovePoint(point.id)">Remove</a></td>
+        </tr>
+    </table>
+    <button class="btn btn-default remove-list-button" ng-click="RemoveList()"> Remove list</button>
+</div>

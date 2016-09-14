@@ -35,5 +35,14 @@ namespace Points.DataLayer
                 return ctx.Lists.Select(x => new ReducedList(){ Id = x.Id, Name = x.Name }).ToList();
             }
         }
+
+        public void RemoveList(int listID)
+        {
+            using(var ctx = new RectangleContext())
+            {
+                ctx.Lists.Remove(ctx.Lists.Find(listID));
+                ctx.SaveChanges();
+            }
+        }
     }
 }
